@@ -18,6 +18,8 @@ async function bootstrap() {
     ),
   );
 
-  await app.listen(config().PORT);
+  await app.listen(config().PORT || 4000, '0.0.0.0');
+
+  console.log(`Application is running on: ${await app.getUrl()}`);
 }
 bootstrap();
